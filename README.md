@@ -2,6 +2,10 @@
 
 Flutter project that allows to browse characters based on search query (from https://api.duckduckgo.com/).
 
+
+https://github.com/wszeborowskimateusz/anywhere-character-viewer/assets/31158740/98c1a23f-cd1d-4dcb-9cdd-adad3a09e611
+
+
 ## Getting Started
 
 ### How to run the project
