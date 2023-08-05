@@ -173,10 +173,10 @@ packages:
     dependency: transitive
     description:
       name: cli_util
-      sha256: "66f86e916d285c1a93d3b79587d94bd71984a66aac4ff74e524cfa7877f1395c"
+      sha256: b8db3080e59b2503ca9e7922c3df2072cf13992354d5e944074ffa836fba43b7
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.5"
+    version: "0.4.0"
   clock:
     dependency: transitive
     description:
@@ -194,7 +194,7 @@ packages:
     source: hosted
     version: "4.5.0"
   collection:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: collection
       sha256: "4a07be6cb69c84d677a6c3096fcf960cc3285a8330b4603e0d463d15d9bd934c"
@@ -289,14 +289,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.6"
-  equatable:
-    dependency: "direct main"
-    description:
-      name: equatable
-      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -378,10 +370,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_launcher_icons
-      sha256: "02dcaf49d405f652b7160e882bacfc02cb497041bb2eab2a49b1c393cf9aac12"
+      sha256: "526faf84284b86a4cb36d20a5e45147747b7563d921373d4ee0559c54fcdbcea"
       url: "https://pub.dev"
     source: hosted
-    version: "0.12.0"
+    version: "0.13.1"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -526,7 +518,7 @@ packages:
     source: hosted
     version: "2.1.6"
   intl:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: intl
       sha256: a3715e3bc90294e971cb7dc063fbf3cd9ee0ebf8604ffeafabd9e6f16abbdbe6
@@ -565,14 +557,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.7.1"
-  lazy_load_scrollview:
-    dependency: "direct main"
-    description:
-      name: lazy_load_scrollview
-      sha256: "230c827d6f7ec5e461f0674ef332daae2f78190bf1e4cd84977e51de04b231e3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.3.0"
   logger:
     dependency: "direct main"
     description:
