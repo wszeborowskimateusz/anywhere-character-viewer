@@ -1,0 +1,26 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - '**/get_it.config.dart'
+    - '**/*.freezed.dart'
+    - '**/*.g.dart'
+    - 'lib/**/__generated/*'
+    - '**/*.gen.dart'
+    - 'lib/firebase_options.dart'
+  errors:
+    invalid_annotation_target: ignore
+
+linter:
+  rules:
+    sort_constructors_first: false
+    public_member_api_docs: false
+    omit_local_variable_types: false
+    lines_longer_than_80_chars: false
+    flutter_style_todos: false
+    prefer_asserts_with_message: false
+    avoid_positional_boolean_parameters: false
+    use_setters_to_change_properties: false
+    avoid_renaming_method_parameters: false

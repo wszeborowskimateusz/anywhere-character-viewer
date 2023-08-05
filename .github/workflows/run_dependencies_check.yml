@@ -1,0 +1,22 @@
+name: Run dependencies check
+
+on:
+  push:
+    branches: [ "main", "release/**" ]
+  pull_request:
+    branches: [ "main", "release/**" ]
+
+  workflow_dispatch:
+
+jobs:
+  validate-dependencies:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/setup_flutter
+
+      - name: Run dependency validator
+        run: flutter pub run dependency_validator

@@ -1,0 +1,22 @@
+name: Run code format check
+
+on:
+  push:
+    branches: [ "main", "release/**" ]
+  pull_request:
+    branches: [ "main", "release/**" ]
+
+  workflow_dispatch:
+
+jobs:
+  code-format:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/setup_flutter
+
+      - name: Run code format check
+        run: dart format --set-exit-if-changed .

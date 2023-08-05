@@ -1,0 +1,9 @@
+{
+   "charactersListPageTitle": "Characters",
+   "charactersListPageEmpty": "No characters found",
+   "charactersListPageError": "Something went wrong. Please try again.",
+   "charactersListPageTryAgain": "Try again",
+   "searchHint": "Search",
+   "charactersListPageSearchEmptyResults": "No results found for the given search query",
+   "charactersDetailsPageTitle": "Character details"
+}
