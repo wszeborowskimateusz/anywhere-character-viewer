@@ -1,4 +1,5 @@
 import 'package:anywhere_character_viewer/core/dependency_injection/get_it.dart';
+import 'package:anywhere_character_viewer/core/extensions/context_extensions.dart';
 import 'package:anywhere_character_viewer/core/ui/tokens/core_edge_insets_directional.dart';
 import 'package:anywhere_character_viewer/core/ui/tokens/core_sizes.dart';
 import 'package:anywhere_character_viewer/core/ui/widgets/core_centered_scrollable_with_refresh.dart';
@@ -6,10 +7,14 @@ import 'package:anywhere_character_viewer/core/ui/widgets/core_search_bar.dart';
 import 'package:anywhere_character_viewer/features/character_viewer/domain/models/character.dart';
 import 'package:anywhere_character_viewer/features/character_viewer/ui/blocs/characters_list_cubit.dart';
 import 'package:anywhere_character_viewer/features/character_viewer/ui/blocs/characters_list_state.dart';
+import 'package:anywhere_character_viewer/features/character_viewer/ui/pages/character_details_page.dart';
+import 'package:anywhere_character_viewer/features/character_viewer/ui/widgets/character_details_tile.dart';
 import 'package:anywhere_character_viewer/features/character_viewer/ui/widgets/character_list_tile.dart';
 import 'package:anywhere_character_viewer/l10n/translations.dart';
+import 'package:dual_screen/dual_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class CharacterListPage extends StatelessWidget {
   static const String routeName = '/characters-list';
@@ -38,7 +43,7 @@ class CharacterListPage extends StatelessWidget {
 
                   return characters.isEmpty
                       ? const _EmptyState()
-                      : _LoadedState(charactersToDisplay);
+                      : _LoadedLayout(charactersToDisplay);
                 },
               ),
             ),
@@ -93,10 +98,60 @@ class _EmptyState extends StatelessWidget {
   }
 }
 
-class _LoadedState extends StatelessWidget {
+class _LoadedLayout extends StatefulWidget {
   final List<Character> characters;
 
-  const _LoadedState(this.characters);
+  const _LoadedLayout(this.characters);
+
+  @override
+  State<_LoadedLayout> createState() => _LoadedLayoutState();
+}
+
+class _LoadedLayoutState extends State<_LoadedLayout> {
+  Character? _selectedCharacter;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _selectedCharacter = widget.characters.first;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isTwoPartLayout = context.isWideScreen;
+
+    return SafeArea(
+      child: TwoPane(
+        startPane: _LoadedState(
+          widget.characters,
+          onCharacterSelected: (character) {
+            setState(() => _selectedCharacter = character);
+
+            if (!isTwoPartLayout) {
+              context.pushNamed(
+                CharacterDetailsPage.routeName,
+                extra: character,
+              );
+            }
+          },
+        ),
+        endPane: _LoadedStateDetailsPanel(
+          selectedCharacter: _selectedCharacter,
+        ),
+        paneProportion: 0.3,
+        panePriority:
+            isTwoPartLayout ? TwoPanePriority.both : TwoPanePriority.start,
+      ),
+    );
+  }
+}
+
+class _LoadedState extends StatelessWidget {
+  final List<Character> characters;
+  final ValueChanged<Character> onCharacterSelected;
+
+  const _LoadedState(this.characters, {required this.onCharacterSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -104,9 +159,7 @@ class _LoadedState extends StatelessWidget {
 
     return Column(
       children: [
-        CoreSearchBar(
-          onSearch: cubit.search,
-        ),
+        CoreSearchBar(onSearch: cubit.search),
         const SizedBox(height: CoreSizes.smallPadding),
         Expanded(
           child: characters.isEmpty
@@ -115,12 +168,40 @@ class _LoadedState extends StatelessWidget {
                   onRefresh: cubit.loadData,
                   child: ListView.separated(
                     itemCount: characters.length,
-                    itemBuilder: (context, index) =>
-                        CharacterListTile(characters[index]),
+                    itemBuilder: (context, index) => CharacterListTile(
+                      characters[index],
+                      onCharacterSelected: () => onCharacterSelected(
+                        characters[index],
+                      ),
+                    ),
                     separatorBuilder: (_, __) => const Divider(),
                   ),
                 ),
         ),
+      ],
+    );
+  }
+}
+
+class _LoadedStateDetailsPanel extends StatelessWidget {
+  final Character? selectedCharacter;
+
+  const _LoadedStateDetailsPanel({this.selectedCharacter});
+
+  @override
+  Widget build(BuildContext context) {
+    if (selectedCharacter == null) {
+      return Center(
+        child: Text(
+          Translations.of(context).charactersDetailsPageNoCharacterSelected,
+        ),
+      );
+    }
+
+    return Row(
+      children: [
+        const SizedBox(width: CoreSizes.smallPadding),
+        Expanded(child: CharacterDetailsTile(selectedCharacter!)),
       ],
     );
   }
@@ -134,6 +215,7 @@ class _SearchEmptyResults extends StatelessWidget {
     return Center(
       child: Text(
         Translations.of(context).charactersListPageSearchEmptyResults,
+        textAlign: TextAlign.center,
       ),
     );
   }
