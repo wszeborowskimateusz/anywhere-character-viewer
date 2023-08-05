@@ -13,10 +13,12 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   /// File path: assets/images/app-icon.png
-  AssetGenImage get appIcon => const AssetGenImage('assets/images/app-icon.png');
+  AssetGenImage get appIcon =>
+      const AssetGenImage('assets/images/app-icon.png');
 
   /// File path: assets/images/image_placeholder.png
-  AssetGenImage get imagePlaceholder => const AssetGenImage('assets/images/image_placeholder.png');
+  AssetGenImage get imagePlaceholder =>
+      const AssetGenImage('assets/images/image_placeholder.png');
 
   $AssetsImagesSplashGen get splash => const $AssetsImagesSplashGen();
 
@@ -28,7 +30,8 @@ class $AssetsImagesSplashGen {
   const $AssetsImagesSplashGen();
 
   /// File path: assets/images/splash/splash.jpeg
-  AssetGenImage get splash => const AssetGenImage('assets/images/splash/splash.jpeg');
+  AssetGenImage get splash =>
+      const AssetGenImage('assets/images/splash/splash.jpeg');
 
   /// List of all assets
   List<AssetGenImage> get values => [splash];
