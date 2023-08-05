@@ -1,6 +1,6 @@
 import 'package:anywhere_character_viewer/features/character_viewer/domain/models/character.dart';
 import 'package:anywhere_character_viewer/features/character_viewer/domain/use_cases/get_characters_use_case.dart';
-import 'package:anywhere_character_viewer/features/character_viewer/ui/blocs/characters_list_state.dart';
+import 'package:anywhere_character_viewer/features/character_viewer/ui/cubits/characters_list_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 

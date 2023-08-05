@@ -14,7 +14,6 @@ class CharactersRemoteDataSource {
   Future<QueryResponseDto> fetchCharacters(String charactersQuery) async {
     final response = await _dio.get<String>(
       Endpoints.charactersSearch(charactersQuery),
-      options: Options(responseType: ResponseType.json),
     );
 
     final jsonData = json.decode(response.data!) as Map<String, dynamic>;

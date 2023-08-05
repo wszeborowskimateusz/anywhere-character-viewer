@@ -21,7 +21,7 @@ import 'package:anywhere_character_viewer/features/character_viewer/domain/use_c
     as _i4;
 import 'package:anywhere_character_viewer/features/character_viewer/domain/use_cases/get_characters_use_case.dart'
     as _i9;
-import 'package:anywhere_character_viewer/features/character_viewer/ui/blocs/characters_list_cubit.dart'
+import 'package:anywhere_character_viewer/features/character_viewer/ui/cubits/characters_list_cubit.dart'
     as _i10;
 import 'package:dio/dio.dart' as _i6;
 import 'package:get_it/get_it.dart' as _i1;

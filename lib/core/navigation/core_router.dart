@@ -1,6 +1,6 @@
 import 'package:anywhere_character_viewer/features/character_viewer/domain/models/character.dart';
 import 'package:anywhere_character_viewer/features/character_viewer/ui/pages/character_details_page.dart';
-import 'package:anywhere_character_viewer/features/character_viewer/ui/pages/character_list_page.dart';
+import 'package:anywhere_character_viewer/features/character_viewer/ui/pages/characters_list_page.dart';
 import 'package:go_router/go_router.dart';
 
 class CoreRouter {

@@ -9,3 +9,4 @@ ignore:
   - flutter_gen
   - flutter_localizations
   - json_annotation
+  - integration_test

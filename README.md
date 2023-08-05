@@ -35,7 +35,8 @@ The app should run on both Android and iOS.
 ### Running tests
 To run all the unit tests run `flutter test` command
 
-To run integration tests run `flutter test integration_test` command
+To run integration tests run `flutter test integration_test` command. 
+
 
 ### Generating code
 All the generated classes are already in the repository, but when you would like to regenerate them

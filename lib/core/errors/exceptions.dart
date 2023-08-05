@@ -5,11 +5,3 @@ class RemoteServerException implements Exception {
 
   const RemoteServerException(this.error);
 }
-
-class EmailAlreadyTakenException implements Exception {}
-
-class EmailNotVerifiedException implements Exception {}
-
-class EmailVerificationInvalidCodeException implements Exception {}
-
-class EmailVerificationExpiredCodeException implements Exception {}
