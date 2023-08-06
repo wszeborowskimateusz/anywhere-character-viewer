@@ -8,7 +8,7 @@ import 'package:injectable/injectable.dart';
 @singleton
 class GetCharactersFromQueryResponseDtoUseCase
     extends UseCase<List<Character>, QueryResponseDto> {
-  /// We are extracting name from [result] field. We expect the name to be
+  /// We are extracting name from [RelatedTopic::result] field. We expect the name to be
   /// a value inside an <a> tag
   static const _nameRegex = r'<a[^>]*>([^<]+)<\/a>';
 
