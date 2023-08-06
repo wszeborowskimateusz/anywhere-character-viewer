@@ -41,6 +41,8 @@ class CharacterListPage extends StatelessWidget {
                 loaded: (characters, searchResult) {
                   final charactersToDisplay = searchResult ?? characters;
 
+                  /// We handle searchResults empty state within _LoadedLayout
+                  /// so here we just check if [characters] field is empty
                   return characters.isEmpty
                       ? const _EmptyState()
                       : _LoadedLayout(charactersToDisplay);

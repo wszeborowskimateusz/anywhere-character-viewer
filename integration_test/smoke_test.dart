@@ -9,7 +9,7 @@ part '_integration_test_helper.dart';
 
 void main() {
   testWidgets(
-    'Should properly be able to add and remove photos from favourites',
+    'Should properly display character list and show details view',
     (WidgetTester tester) async {
       await tester.pumpApp();
 

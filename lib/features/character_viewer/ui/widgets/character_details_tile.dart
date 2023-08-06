@@ -18,7 +18,7 @@ class CharacterDetailsTile extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: CoreSizes.smallPadding),
-          _Image(character.imageUrl),
+          CoreNetworkImage(imageUrl: character.imageUrl),
           const SizedBox(height: CoreSizes.smallPadding),
           Text(
             character.description,
@@ -28,16 +28,5 @@ class CharacterDetailsTile extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class _Image extends StatelessWidget {
-  final String? url;
-
-  const _Image(this.url);
-
-  @override
-  Widget build(BuildContext context) {
-    return CoreNetworkImage(imageUrl: url);
   }
 }
