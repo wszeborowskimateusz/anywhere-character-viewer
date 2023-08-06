@@ -17,7 +17,7 @@ The following dart defines are supported by the app
 | :-----: | :------------: |:---: | :---: |
 | CHARACTER_QUERY | Any string | simpsons characters | provides the search query for duckduckgo api |
 | APP_NAME | Any string   | Simpsons Character Viewer | specifies app display name |
-| PACKAGE_NAME | Package name to be used  (e.g. com.example) | None | specifies app id |
+| PACKAGE_NAME | Package name to be used  (e.g. com.example) | com.sample.simpsonsviewer | specifies app id |
 
 All of the listed dart defines must be provided in order for the app to work correctly. 
 
